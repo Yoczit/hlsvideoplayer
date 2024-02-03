@@ -9,8 +9,8 @@ let loadedAera = 0;
 let HLS = new Hls();
 
 if(Hls.isSupported()){
-    HLS.loadSource("https://stream.77lab.cloud/VIDEOS/AMVID/output.m3u8");
-    //HLS.loadSource('<?php echo (isset($_GET["url"]) ? $_GET["url"] : "." . $_GET["id"] ); ?>');
+    //HLS.loadSource("https://stream.77lab.cloud/VIDEOS/AMVID/output.m3u8"); // decommentout this and commentout below for load our example vid.
+    HLS.loadSource('<?php echo (isset($_GET["url"]) ? $_GET["url"] : "." . $_GET["id"] ); ?>'); // It need php. well just it put path to m3u8.
     HLS.attachMedia(VIDEO_EL);
     HLS.on(Hls.Events.MANIFEST_LOADED ,function() {
         val = document.cookie.split("; ")
