@@ -55,7 +55,7 @@ setInterval(function(){
 },50);
 
 VIDEO_EL.addEventListener("loadedmetadata", (E)=>{ //when video's meta loded.
-    document.getElementById('control_seekbar_range').max = VIDEO_EL.duration; //set video length.
+    document.getElementById('control_seekbar_range').max = Math.floor(VIDEO_EL.duration); //set video length. I do floor for fix bug happen after video end.
     document.getElementById('control_seekbar_range').value = 0; //reset seekbar
     document.getElementById('control_time_max').innerHTML = convertSecondsToTime(VIDEO_EL.duration); //set video length.
 });
