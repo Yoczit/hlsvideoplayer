@@ -38,7 +38,6 @@ function SpeedUpdate(btn,val){
 
 setInterval(function(){
     // This is update volume bar, control buttons and do more.
-    UpdateControlButtons();
     UpdateVolbar();
     VIDEO_EL.volume = document.getElementById('control_volbar_range').value;
     if(isValidFocus()){
@@ -51,6 +50,9 @@ setInterval(function(){
     }else{
         document.getElementById("control_element").classList.add("bottom-5");
         document.getElementById("body_element").classList.remove("cursor-none");
+    }
+    if(VIDEO_EL.currentTime >= VIDEO_EL.duration){
+        UpdateControlButtons();
     }
 },50);
 
@@ -66,6 +68,7 @@ function Play(){
     }else {
         VIDEO_EL.pause();
     }
+    UpdateControlButtons();
 }
 
 function UpdateSeekbar(){
